@@ -88,19 +88,15 @@ import com.google.android.gms.maps.model.MarkerOptions;
             latNum = location.getLatitude();
             lonNum = location.getLongitude();
 
-            //Add a marker in Sydney and move the camera
-            LatLng japan = new LatLng(latNum, lonNum);
-            mMap.addMarker(new MarkerOptions().position(japan).title("走ろうよ！"));
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(japan));
+            //Add a marker in current location and move the camera
+            LatLng current = new LatLng(20, 100);
+            mMap.addMarker(new MarkerOptions().position(current).title("走ろうよ！"));
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(current));
         }
 
         @Override
 
         public void onLocationChanged(@NonNull Location location) {
-            String text = "緯度：" + location.getLatitude() + "経度 :" + location.getLongitude();
-            runBtn.setText(text);
-
-
 
         }
 
