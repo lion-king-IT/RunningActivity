@@ -14,14 +14,18 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:textSize="20sp"
+            android:layout_gravity="center_horizontal"/>
+
     <Button
         android:id="@+id/runBtn"
         android:layout_width="150dp"
         android:layout_height="100dp"
         android:text="START-HIGH"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="40dp"
-        android:background="#FFFF00"/>
+        android:background="#FFFF00" />
 
         <fragment
             android:id="@+id/map"
