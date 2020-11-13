@@ -1,6 +1,7 @@
 package com.reo.running.runningactivity
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.reo.running.runningactivity.R
-import com.reo.running.runningactivity.ItemModel
 
-class MainFragment : Fragment(){
+class MainFragment : Fragment() {
     private var recyclerView: RecyclerView? = null
 
     override fun onCreateView(
@@ -32,14 +31,15 @@ class MainFragment : Fragment(){
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(context)
             itemAnimator = DefaultItemAnimator()
-            adapter = MainViewAdapter(
-                    generateItemList(),
-                    object : MainViewAdapter.ListListener {
-                        override fun onClickItem(tappedView: View, itemModel: ItemModel) {
-                            this@MainFragment.onClickItem(tappedView, itemModel)
-                        }
-                    }
-            )
+            adapter =
+                    MainViewAdapter(
+                            generateItemList(),
+                            object : MainViewAdapter.ListListener {
+                                override fun onClickItem(tappedView: View, itemModel: ItemModel) {
+                                    this@MainFragment.onClickItem(tappedView, itemModel)
+                                }
+                            }
+                    )
         }
     }
 
@@ -63,5 +63,6 @@ class MainFragment : Fragment(){
 
     //RecyclerView内のアイテムがクリックされたときに動く
     private fun onClickItem(tappedView: View, itemModel: ItemModel) {
+        Log.d("debug", itemModel.text)
     }
 }
